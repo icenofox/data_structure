@@ -6,103 +6,61 @@ package com.martin.app;
 
 class FastSort {
 
-    private volatile int haha = 0;
+	private volatile int haha = 0;
 
-    public void sort(int[] array) {
-        if (null == array || array.length == 0) {
-            return;
-        }
+	public void sort(int[] array) {
+		if (null == array || array.length == 0) {
+			return;
+		}
 
-        subSort(array, 0, array.length - 1);
-    }
+		subSort(array, 0, array.length - 1);
+	}
 
-    private void subSort(int[] array, int begin, int end) {
+	private void subSort(int[] array, int begin, int end) {
 
-        if (begin >= end) {
-            return;
-        }
+		if (begin >= end) {
+			return;
+		}
 
-        int newIndex = adjust(array, begin, end);
-        subSort(array, begin, newIndex - 1);
-        subSort(array, newIndex + 1, end);
+		int newIndex = partition(array, begin, end);
+		subSort(array, begin, newIndex - 1);
+		subSort(array, newIndex + 1, end);
 
-    }
+	}
 
-    private int adjust2(int array[], int begin, int end) {
-        int base = array[begin];
-        int i = begin;
-        int j = end;
+	private void swap(int[] array, int firstIndex, int secondIndex){
+		int temp = array[firstIndex];
+		array[firstIndex] = array[secondIndex];
+		array[secondIndex] = temp;
+	}
 
-        while (i < j) {
-            while (i < j && array[j] >= base) {
-                j--;
-            }
+	private int partition(int[] array, int begin, int end) {
+		int lowerIndex = begin - 1;
+		int pivot = array[end];
 
-            if (i < j) {
-                array[i] = array[j];
-                i++;
-            }
+		for (int i = begin; i < end; i++) {
+			if (array[i] <= pivot) {
+				lowerIndex ++;
 
-            while (i < j && array[i] < base) {
-                i++;
-            }
+				swap(array, lowerIndex, i);
+			}
+		}
 
-            if (i < j) {
-                array[j] = array[i];
-                j--;
-            }
+		swap(array, lowerIndex + 1, end);
 
-        }
-
-        array[i] = base;
-        return i;
-    }
-
-    private int adjust(int[] array, int begin, int end) {
-
-        int base = array[begin];
-        int i = begin;
-        int j = end;
-
-
-
-        while (i < j) {
-
-            while (i < j && array[j] >= base) {
-                j--;
-            }
-
-            if (i < j) {
-                array[i] = array[j];
-                i++;
-            }
-
-            while (i < j && array[i] < base) {
-                i++;
-            }
-
-            if (i < j) {
-                array[j] = array[i];
-                j--;
-            }
-        }
-
-        array[i] = base;
-        return i;
-    }
-
-
+		return lowerIndex + 1;
+	}
 }
 
 public class FastSortTest {
 
-    public static void main(String[] args) {
-        FastSort fastSort = new FastSort();
+	public static void main(String[] args) {
+		FastSort fastSort = new FastSort();
 
-        int[] array = {10, 298, 72, 10, 28, 3, 87, 78, 1000};
+		int[] array = { 10, 298, 72, 10, 28, 3, 87, 78, 1000 };
 
-        fastSort.sort(array);
+		fastSort.sort(array);
 
-        System.out.print(array.toString());
-    }
+		System.out.print(array.toString());
+	}
 }
