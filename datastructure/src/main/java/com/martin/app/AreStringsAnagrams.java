@@ -7,15 +7,7 @@ public class AreStringsAnagrams {
 
     public boolean AreStringsAnagrams(String a, String b) {
         if (a.length() != b.length()) return false;
-
         int[] letters = new int[26];
-
-        //initialization
-        for (int i = 0; i < letters.length; i++) {
-            letters[i] = 0;
-        }
-
-        //process the string a
 
         char[] arrayA = a.toLowerCase().toCharArray();
         char[] arrayB = b.toLowerCase().toCharArray();
@@ -44,7 +36,7 @@ public class AreStringsAnagrams {
     public static void main(String[] args) {
         AreStringsAnagrams test = new AreStringsAnagrams();
 
-        boolean ret = test.AreStringsAnagrams("Mary", "Army");
+        boolean ret = test.AreStringsAnagrams("Marym", "Armym");
 
         boolean ret2 = test.AreStringsAnagrams2("Mary", "Army");
         System.out.println(ret);

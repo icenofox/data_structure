@@ -1,4 +1,5 @@
-package com.pajk.DataStruct;
+package com.martin.app;
+
 
 public interface Tree<T> {
 	

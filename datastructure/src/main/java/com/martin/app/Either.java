@@ -1,4 +1,4 @@
-package com.pajk.DataStruct;
+package com.martin.app;
 
 /**
  * A type which stores one of either of two types of value, but not both.

@@ -1,4 +1,4 @@
-package com.pajk.DataStruct;
+package com.martin.app;
 
 import java.util.*;
 

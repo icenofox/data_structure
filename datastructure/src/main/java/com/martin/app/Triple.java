@@ -1,4 +1,4 @@
-package com.pajk.DataStruct;
+package com.martin.app;
 
 /**
  * A type that stores three values of the same type.

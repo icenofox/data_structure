@@ -1,4 +1,4 @@
-package com.pajk.DataStruct;
+package com.martin.app;
 
 /**
  * Created by icenofox on 19/05/15.
