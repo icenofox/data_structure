@@ -61,6 +61,6 @@ public class FastSortTest {
 
 		fastSort.sort(array);
 
-		PrintHelper.printArray(array);
+		Helper.printArray(array);
 	}
 }
