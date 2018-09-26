@@ -28,7 +28,7 @@ class FastSort {
 
 	}
 
-	private void swap(int[] array, int firstIndex, int secondIndex){
+	private void swap(int[] array, int firstIndex, int secondIndex) {
 		int temp = array[firstIndex];
 		array[firstIndex] = array[secondIndex];
 		array[secondIndex] = temp;
@@ -40,7 +40,7 @@ class FastSort {
 
 		for (int i = begin; i < end; i++) {
 			if (array[i] <= pivot) {
-				lowerIndex ++;
+				lowerIndex++;
 
 				swap(array, lowerIndex, i);
 			}
@@ -61,6 +61,6 @@ public class FastSortTest {
 
 		fastSort.sort(array);
 
-		System.out.print(array.toString());
+		PrintHelper.printArray(array);
 	}
 }
